@@ -10,5 +10,12 @@ const project = new typescript.TypeScriptProject({
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   devDeps: ["@jest/globals"] /* Build dependencies for this module. */,
   // packageName: undefined,  /* The "name" in package.json. */
+  prettier: true,
+  prettierOptions: {
+    settings: {
+      printWidth: 120,
+      tabWidth: 2,
+    },
+  },
 });
 project.synth();
