@@ -15,6 +15,8 @@ const project = new cdk.JsiiProject({
   minNodeVersion: "24.0.0",
   workflowNodeVersion: "24.13.0",
   workflowPackageCache: false,
+  licensed: true,
+  license: "MIT",
   deps: ["projen"],
   peerDeps: ["projen", "constructs"],
   devDeps: ["@jest/globals"],
