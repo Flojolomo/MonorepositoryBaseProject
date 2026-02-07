@@ -12,7 +12,6 @@
     "post-compile": "npx projen post-compile",
     "post-upgrade": "npx projen post-upgrade",
     "pre-compile": "npx projen pre-compile",
-    "publish:github": "npx projen publish:github",
     "release": "npx projen release",
     "test": "npx projen test",
     "test:watch": "npx projen test:watch",
@@ -48,6 +47,7 @@
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "version": "0.0.0",
+  "packageManager": "yarn@4.0.1",
   "jest": {
     "coverageProvider": "v8",
     "testMatch": [
