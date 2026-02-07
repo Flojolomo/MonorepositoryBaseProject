@@ -9,26 +9,12 @@ export interface MonorepoProjectOptions {
 export class MonorepoProject extends javascript.NodeProject {
   constructor(options: MonorepoProjectOptions) {
     const defaultReleaseBranch = options?.defaultReleaseBranch ?? "main";
+    const packageManager = options.packageManager ?? javascript.NodePackageManager.PNPM;
 
     super({
       ...options,
       defaultReleaseBranch,
-      packageManager: options.packageManager ?? javascript.NodePackageManager.PNPM,
-    });
-
-    new awscdk.AwsCdkTypeScriptApp({
-      parent: this,
-      outdir: "infrastructure",
-      name: "infrastructure",
-      defaultReleaseBranch: defaultReleaseBranch,
-      cdkVersion: "2.147.0",
-    });
-
-    new web.ReactTypeScriptProject({
-      parent: this,
-      outdir: "frontend",
-      name: "frontend",
-      defaultReleaseBranch: defaultReleaseBranch,
+      packageManager,
     });
 
     new TextFile(this, ".projenrc.ts", {
@@ -42,6 +28,23 @@ export class MonorepoProject extends javascript.NodeProject {
         "",
         "project.synth();",
       ],
+    });
+
+    new awscdk.AwsCdkTypeScriptApp({
+      parent: this,
+      outdir: "infrastructure",
+      name: "infrastructure",
+      defaultReleaseBranch: defaultReleaseBranch,
+      cdkVersion: "2.147.0",
+      packageManager,
+    });
+
+    new web.ReactTypeScriptProject({
+      parent: this,
+      outdir: "frontend",
+      name: "frontend",
+      defaultReleaseBranch: defaultReleaseBranch,
+      packageManager,
     });
   }
 }
