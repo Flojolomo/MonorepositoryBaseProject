@@ -5,6 +5,7 @@ const project = new typescript.TypeScriptProject({
   name: "@flocoder93/base-project",
   projenrcTs: true,
   releaseToNpm: true,
+  npmTrustedPublishing: true,
   depsUpgrade: false,
   renovatebot: true,
   packageManager: NodePackageManager.PNPM,
