@@ -19,7 +19,7 @@ const project = new cdk.JsiiProject({
   license: "MIT",
   deps: ["projen"],
   peerDeps: ["projen", "constructs"],
-  devDeps: ["@jest/globals", "projen@0.99.10", "constructs@10.4.5"],
+  devDeps: ["@jest/globals"],
   prettier: true,
   prettierOptions: {
     settings: {
