@@ -1,4 +1,4 @@
-import { javascript, awscdk, web, TextFile } from "projen";
+import { javascript, awscdk, web } from "projen";
 
 export interface MonorepoProjectOptions {
   readonly defaultReleaseBranch?: string;
@@ -15,19 +15,6 @@ export class MonorepoProject extends javascript.NodeProject {
       ...options,
       defaultReleaseBranch,
       packageManager,
-    });
-
-    new TextFile(this, ".projenrc.ts", {
-      lines: [
-        'import { MonorepoProject } from "./src";',
-        "",
-        "const project = new MonorepoProject({",
-        `  name: "${options.name}",`,
-        `  repository: "${options.repository}",`,
-        "});",
-        "",
-        "project.synth();",
-      ],
     });
 
     new awscdk.AwsCdkTypeScriptApp({
