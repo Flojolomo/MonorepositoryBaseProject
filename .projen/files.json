@@ -6,7 +6,6 @@
     ".github/workflows/build.yml",
     ".github/workflows/pull-request-lint.yml",
     ".github/workflows/release.yml",
-    ".github/workflows/upgrade-main.yml",
     ".gitignore",
     ".mergify.yml",
     ".npmignore",
@@ -17,6 +16,7 @@
     ".projen/tasks.json",
     ".yarnrc.yml",
     "LICENSE",
+    "renovate.json5",
     "tsconfig.dev.json",
     "tsconfig.json"
   ],
