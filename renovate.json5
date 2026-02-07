@@ -30,11 +30,14 @@
     "constructs",
     "eslint",
     "jest-junit",
+    "jsii-docgen",
+    "jsii-rosetta",
+    "jsii",
     "projen",
     "actions/checkout",
     "actions/download-artifact",
-    "amannn/action-semantic-pull-request",
     "pnpm/action-setup",
+    "amannn/action-semantic-pull-request",
     "actions/setup-node",
     "actions/upload-artifact"
   ]

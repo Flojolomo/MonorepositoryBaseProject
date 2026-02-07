@@ -1,9 +1,11 @@
-import { typescript } from "projen";
+import { cdk } from "projen";
 import { NodePackageManager } from "projen/lib/javascript";
-const project = new typescript.TypeScriptProject({
+const project = new cdk.JsiiProject({
+  author: "flocoder93",
+  authorAddress: "https://github.com/Flojolomo",
   defaultReleaseBranch: "main",
   name: "@flocoder93/base-project",
-  repository: "https://github.com/Flojolomo/MonorepositoryBaseProject.git",
+  repositoryUrl: "https://github.com/Flojolomo/MonorepositoryBaseProject.git",
   projenrcTs: true,
   releaseToNpm: true,
   npmTrustedPublishing: true,
@@ -11,12 +13,11 @@ const project = new typescript.TypeScriptProject({
   renovatebot: true,
   packageManager: NodePackageManager.PNPM,
   minNodeVersion: "24.0.0",
-  workflowNodeVersion: "24.13.0", // defaults to minNodeVersion
+  workflowNodeVersion: "24.13.0",
   workflowPackageCache: false,
-  deps: ["projen"] /* Runtime dependencies of this module. */,
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  devDeps: ["@jest/globals"] /* Build dependencies for this module. */,
-  // packageName: undefined,  /* The "name" in package.json. */
+  deps: ["projen"],
+  peerDeps: ["projen", "constructs"],
+  devDeps: ["@jest/globals"],
   prettier: true,
   prettierOptions: {
     settings: {
