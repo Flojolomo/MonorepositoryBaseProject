@@ -1,5 +1,5 @@
 {
-  "name": "BaseProject",
+  "name": "@flocoder93/base-project",
   "scripts": {
     "build": "npx projen build",
     "bump": "npx projen bump",
@@ -12,6 +12,7 @@
     "post-compile": "npx projen post-compile",
     "post-upgrade": "npx projen post-upgrade",
     "pre-compile": "npx projen pre-compile",
+    "publish:github": "npx projen publish:github",
     "release": "npx projen release",
     "test": "npx projen test",
     "test:watch": "npx projen test:watch",
@@ -40,9 +41,6 @@
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",
-  "publishConfig": {
-    "access": "public"
-  },
   "version": "0.0.0",
   "jest": {
     "coverageProvider": "v8",

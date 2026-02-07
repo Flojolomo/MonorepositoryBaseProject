@@ -1,8 +1,10 @@
-import { typescript } from 'projen';
+import { typescript } from "projen";
 const project = new typescript.TypeScriptProject({
-  defaultReleaseBranch: 'main',
-  name: 'BaseProject',
+  defaultReleaseBranch: "main",
+  name: "@flocoder93/base-project",
   projenrcTs: true,
+  publishTasks: true,
+  npmTrustedPublishing: true,
 
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
