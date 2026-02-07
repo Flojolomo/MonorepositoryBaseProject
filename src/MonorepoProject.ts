@@ -4,8 +4,8 @@ export class MyMonorepoProject extends javascript.NodeProject {
   constructor() {
     super({
       defaultReleaseBranch: "main",
-      name: "my-monorepo",
-      repository: "https://github.com/flocoder93/my-monorepo.git",
+      name: "monorepo-base-project",
+      repository: "https://github.com/Flojolomo/MonorepositoryBaseProject.git",
       packageManager: javascript.NodePackageManager.PNPM, // or YARN/NPM
     });
 
