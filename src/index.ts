@@ -1,1 +1,1 @@
-export * from "./MonorepoProject";
+export * from './monorepo_project';

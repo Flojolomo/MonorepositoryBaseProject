@@ -1,14 +1,14 @@
-import { typescript } from "projen";
+import { typescript } from 'projen';
 const project = new typescript.TypeScriptProject({
-  defaultReleaseBranch: "main",
-  name: "@flocoder93/base-project",
+  defaultReleaseBranch: 'main',
+  name: '@flocoder93/base-project',
   projenrcTs: true,
   publishTasks: true,
   npmTrustedPublishing: true,
 
-  // deps: [],                /* Runtime dependencies of this module. */
+  deps: ['projen'] /* Runtime dependencies of this module. */,
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
+  devDeps: ['@jest/globals'] /* Build dependencies for this module. */,
   // packageName: undefined,  /* The "name" in package.json. */
 });
 project.synth();
