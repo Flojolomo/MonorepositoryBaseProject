@@ -34,6 +34,7 @@
     "actions/checkout",
     "actions/download-artifact",
     "amannn/action-semantic-pull-request",
+    "pnpm/action-setup",
     "actions/setup-node",
     "actions/upload-artifact"
   ]

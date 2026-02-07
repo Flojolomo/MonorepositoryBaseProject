@@ -1,5 +1,5 @@
 import { typescript } from "projen";
-import { NodePackageManager, YarnNodeLinker } from "projen/lib/javascript";
+import { NodePackageManager } from "projen/lib/javascript";
 const project = new typescript.TypeScriptProject({
   defaultReleaseBranch: "main",
   name: "@flocoder93/base-project",
@@ -7,16 +7,10 @@ const project = new typescript.TypeScriptProject({
   releaseToNpm: true,
   depsUpgrade: false,
   renovatebot: true,
-  packageManager: NodePackageManager.YARN_BERRY,
-  yarnBerryOptions: {
-    version: "4.0.1",
-    zeroInstalls: false,
-    yarnRcOptions: {
-      nodeLinker: YarnNodeLinker.NODE_MODULES,
-    },
-  },
+  packageManager: NodePackageManager.PNPM,
   minNodeVersion: "24.0.0",
   workflowNodeVersion: "24.13.0", // defaults to minNodeVersion
+  workflowPackageCache: false,
   deps: ["projen"] /* Runtime dependencies of this module. */,
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   devDeps: ["@jest/globals"] /* Build dependencies for this module. */,

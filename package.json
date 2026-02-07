@@ -42,13 +42,13 @@
   "dependencies": {
     "projen": "^0.99.10"
   },
+  "pnpm": {},
   "engines": {
     "node": ">= 24.0.0"
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "version": "0.0.0",
-  "packageManager": "yarn@4.0.1",
   "jest": {
     "coverageProvider": "v8",
     "testMatch": [
