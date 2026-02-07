@@ -6,7 +6,7 @@ export class MyMonorepoProject extends javascript.NodeProject {
       defaultReleaseBranch: "main",
       name: "monorepo-base-project",
       repository: "https://github.com/Flojolomo/MonorepositoryBaseProject.git",
-      packageManager: javascript.NodePackageManager.PNPM, // or YARN/NPM
+      packageManager: javascript.NodePackageManager.YARN_BERRY, // or YARN/NPM
     });
 
     new awscdk.AwsCdkTypeScriptApp({
