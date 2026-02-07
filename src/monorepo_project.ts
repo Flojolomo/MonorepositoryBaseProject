@@ -1,10 +1,10 @@
-import { javascript, awscdk, web } from "projen";
+import { javascript, awscdk, web, TextFile } from "projen";
 
 export interface MonorepoProjectOptions {
-  defaultReleaseBranch?: string;
-  name: string;
-  repository: string;
-  packageManager?: javascript.NodePackageManager;
+  readonly defaultReleaseBranch?: string;
+  readonly name: string;
+  readonly repository: string;
+  readonly packageManager?: javascript.NodePackageManager;
 }
 export class MonorepoProject extends javascript.NodeProject {
   constructor(options: MonorepoProjectOptions) {
@@ -29,6 +29,19 @@ export class MonorepoProject extends javascript.NodeProject {
       outdir: "frontend",
       name: "frontend",
       defaultReleaseBranch: defaultReleaseBranch,
+    });
+
+    new TextFile(this, ".projenrc.ts", {
+      lines: [
+        'import { MonorepoProject } from "./src";',
+        "",
+        "const project = new MonorepoProject({",
+        `  name: "${options.name}",`,
+        `  repository: "${options.repository}",`,
+        "});",
+        "",
+        "project.synth();",
+      ],
     });
   }
 }
