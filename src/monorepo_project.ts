@@ -1,19 +1,26 @@
 import { javascript, awscdk, web } from "projen";
 
-export class MyMonorepoProject extends javascript.NodeProject {
-  constructor() {
+export interface MonorepoProjectOptions {
+  defaultReleaseBranch?: string;
+  name: string;
+  repository: string;
+  packageManager?: javascript.NodePackageManager;
+}
+export class MonorepoProject extends javascript.NodeProject {
+  constructor(options: MonorepoProjectOptions) {
+    const defaultReleaseBranch = options?.defaultReleaseBranch ?? "main";
+
     super({
-      defaultReleaseBranch: "main",
-      name: "monorepo-base-project",
-      repository: "https://github.com/Flojolomo/MonorepositoryBaseProject.git",
-      packageManager: javascript.NodePackageManager.YARN_BERRY, // or YARN/NPM
+      ...options,
+      defaultReleaseBranch,
+      packageManager: options.packageManager ?? javascript.NodePackageManager.PNPM,
     });
 
     new awscdk.AwsCdkTypeScriptApp({
       parent: this,
       outdir: "infrastructure",
       name: "infrastructure",
-      defaultReleaseBranch: "main",
+      defaultReleaseBranch: defaultReleaseBranch,
       cdkVersion: "2.147.0",
     });
 
@@ -21,7 +28,7 @@ export class MyMonorepoProject extends javascript.NodeProject {
       parent: this,
       outdir: "frontend",
       name: "frontend",
-      defaultReleaseBranch: "main",
+      defaultReleaseBranch: defaultReleaseBranch,
     });
   }
 }
